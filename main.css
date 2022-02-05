@@ -4,7 +4,8 @@
 }
 .pic img{
     position: relative;
-    height: 200px;
+    top: 3px;
+    height: 220px;
 }
 
 /****/
