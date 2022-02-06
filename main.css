@@ -1,19 +1,91 @@
+body {
+    margin: 60px auto;
+    width: 70%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 2em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+
+.intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
 
 .pic {
-    float: right;
+    max-width: 30%;
+    margin-left: 5%;
 }
+
 .pic img{
-    position: relative;
-    top: 3px;
-    height: 220px;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 800px) {
+    .pic {
+        display: none;
+    }
+}
+
+.intro .text div:not(.name) {
+    margin: 0.3em 0 0.3em 0.3em;
+}
+
+.contact ul {
+    margin-top: 1.5em;
+    list-style: none;
+    padding-left: 0.3em;
+}
+
+.contact ul li {
+    margin: 0.3em 0 0.3em 0;
+}
+
+.contact ul li i {
+    margin-right: 0.3em;
+    width: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 167, 130);
+}
+a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border-width: 1.5px 0 0 0;
+    border-color: #999;
+    border-style: solid;
+}
+
+.sec-link {
+    font-weight: bold;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.4em;
+    color: #333;
+}
+
+span.nodeLabel {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.94em;
+    font-weight: bold;
+    width: 100%;
 }
 
 /****/
 
-body {
-    margin: 60px auto;
-    width: 70%;
-}
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
@@ -24,23 +96,9 @@ nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
-a {
-    /* text-decoration: none; */
-    color: #999;
-}
-a:hover {
-    text-decoration: underline;
-}
-h1 {
-    /* font-size: 3em; */
-    font-size: 2em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-p {
-    font-size: 1em;
-    line-height: 1.4em;
-    color: #333;
-}
+
+
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
