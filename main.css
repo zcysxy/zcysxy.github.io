@@ -127,3 +127,8 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+code a i {
+    position: relative;
+    bottom: -2px;
+}
