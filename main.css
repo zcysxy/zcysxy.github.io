@@ -78,7 +78,7 @@ hr {
     font-weight: bold;
 }
 
-p {
+p, li {
     font-size: 1em;
     line-height: 1.4em;
     color: #333;
