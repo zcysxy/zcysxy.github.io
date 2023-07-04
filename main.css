@@ -32,6 +32,9 @@ h1 {
 }
 
 @media (max-width: 800px) {
+    body {
+        width: 95%;
+    }
     .pic {
         display: none;
     }
