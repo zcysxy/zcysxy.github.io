@@ -39,10 +39,14 @@ h3 {
 @media (max-width: 800px) {
     body {
         width: 95%;
-        font-size: 4vw;
     }
     .pic {
         display: none;
+    }
+}
+@media (max-width: 500px) {
+    body {
+        font-size: 4vw;
     }
 }
 
@@ -90,10 +94,10 @@ ul.pub li p {
     justify-content: space-evenly;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 500px) {
     ul.pub li {
         flex-direction: column;
-        height: 600px;
+        height: 400px;
     }
     ul.pub li > img {
         border-top-left-radius: 15px;
@@ -101,7 +105,9 @@ ul.pub li p {
         border-top-right-radius: 15px;
         width: 100%;
         max-width: unset;
-        height: 300px;
+        height: unset;
+        max-height: 200px;
+        min-height: 200px;
     }
 }
 
