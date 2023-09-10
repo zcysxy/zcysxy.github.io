@@ -91,14 +91,16 @@ ul.pub li p {
 }
 
 @media (max-width: 800px) {
-    .pub li {
+    ul.pub li {
         flex-direction: column;
+        height: 600px;
     }
     ul.pub li > img {
         border-top-left-radius: 15px;
         border-bottom-left-radius: 0;
         border-top-right-radius: 15px;
         width: 100%;
+        max-width: unset;
         height: 300px;
     }
 }
