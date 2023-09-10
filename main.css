@@ -54,6 +54,40 @@ ul {
     padding-left: 1.5em;
 }
 
+/* Publications */
+ul.pub {
+    list-style: none;
+    padding-left: 0;
+}
+ul.pub li {
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin: 10px 0 10px 0;
+    display: flex;
+}
+ul.pub li > img {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 30%;
+    min-height: 100%;
+}
+ul.pub li p {
+    margin: 20px;
+}
+
+@media (max-width: 800px) {
+    .pub li {
+        flex-direction: column;
+    }
+    ul.pub li > img {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 15px;
+        width: 100%;
+        height: 300px;
+    }
+}
+
 .contact ul,
 .project-list ul {
     margin-top: 1.5em;
