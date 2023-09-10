@@ -89,6 +89,9 @@ ul.pub li > img {
     object-fit: cover;
     height: 100%;
 }
+ul.pub li > img:hover {
+    cursor: pointer;
+}
 ul.pub li p {
     margin: 20px;
     height: 100%;
