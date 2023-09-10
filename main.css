@@ -73,6 +73,9 @@ ul.pub li {
     height: 200px;
     width: 100%;
 }
+ul.pub li a.title {
+    font-size: 1.2rem;
+}
 /* @media (max-width: 1000px) { */
 /*     ul.pub li { */
 /*         height: 200px; */
