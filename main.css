@@ -210,3 +210,11 @@ code a i {
     position: relative;
     bottom: -2px;
 }
+
+aside.w-footer {
+	display: none !important;
+}
+
+div.w-card_header {
+	color: red
+}
