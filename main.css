@@ -65,7 +65,7 @@ ul.pub {
   padding-left: 0;
 }
 ul.pub li {
-  border: 1px solid gray;
+  border: 1px solid #aaa;
   border-radius: 15px;
   margin: 10px 0 10px 0;
   display: flex;
@@ -146,7 +146,7 @@ a:hover {
 
 hr {
   border-width: 1.5px 0 0 0;
-  border-color: #999;
+  border-color: #aaa;
   border-style: solid;
   margin-top: 1em;
 }
@@ -213,7 +213,7 @@ code a i {
 }
 
 code.date {
-  background-color: lightgray;
+  background-color: light#aaa;
   border-radius: 4px;
 	font-size: 0.8em;
   padding: 0.1em 0.25em;
@@ -224,24 +224,52 @@ code.date {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	gap: 5%;
+	gap: 1%;
 }
 
-.flow-item {
-	flex: 1 1 20%;
+.flow-row-item {
+	flex: 1 1 21%;
 	margin: 0 0 1em;
+	border-radius: 15px;
+	border: 1px solid #aaa;
+	padding: 1%;
+	max-width: 25%;
 }
-.flow-item img {
+.flow-row-item img {
 	width: 95%;
   margin: 0 2.5%;
 	/* margin-left: auto; */
 	text-align: center;
 }
 
-.flow-item .caption {
+.flow-row-item .caption {
 	text-align: center;
+}
+.flow-row-item .caption span {
+	display: block;
+	/* margin: 0.5em auto; */
+	padding: 5px;
+	position: relative;
+}
+.flow-row-item .caption :not(:last-child) {
+	border-bottom: 1px solid #ddd;
+	border-image: linear-gradient(to right, rgba(0,0,0,0), #ddd 40%, #ddd 60%, rgba(0,0,0,0) 100%) 1;
+}
+
+@media (max-width: 600px) {
+	.flow-row-item {
+		flex: 1 1 45%;
+		max-width: 50%;
+	}
+}
+
+@media (max-width: 400px) {
+	.flow-row-item {
+		flex: 1 1 95%;
+	}
 }
 
 .mermaid {
 	text-align: center;
 }
+
