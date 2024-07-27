@@ -251,7 +251,7 @@ code.date {
 	padding: 5px;
 	position: relative;
 }
-.flow-row-item .caption :not(:last-child) {
+.flow-row-item .caption > :not(:last-child) {
 	border-bottom: 1px solid #ddd;
 	border-image: linear-gradient(to right, rgba(0,0,0,0), #ddd 40%, #ddd 60%, rgba(0,0,0,0) 100%) 1;
 }
