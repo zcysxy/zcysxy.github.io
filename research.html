@@ -6,8 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   </head>
   <body>
-    <div id="myPlot" style="width: 600px; height: 600px"></div>
-    <div id="info-card" style="width: 600px; margin-top: 20px"></div>
+    <div id="myPlot" style="width: 750px; height: 600px"></div>
+    <div id="info-card" style="width: 750px; margin-top: -60px; position: relative; z-index: 10;"></div>
 
     <script>
       // --- AXIS LINE DATA ---
@@ -312,11 +312,11 @@
         title: "Research Dimensions",
         showlegend: true,
         legend: {
-          orientation: "h",
-          yanchor: "bottom",
-          y: -0.1,
-          xanchor: "center",
-          x: 0.5,
+          orientation: "v",
+          // yanchor: "bottom",
+          y: 0.5,
+          // xanchor: "center",
+          // x: 0.5,
         },
 
         scene: {
