@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Research Dimensions</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  </head>
+  <body>
+    <div id="myPlot" style="width: 800px; height: 600px"></div>
+
+    <script>
+      // --- AXIS LINE DATA ---
+      var axisLineColor = "#333";
+      var axisLineWidth = 7;
+      var arrowColor = "#333";
+      var arrowSizeRef = 0.8;
+
+      // X-Axis line
+      var xAxisLine = {
+        type: "scatter3d",
+        mode: "lines",
+        x: [0, 10],
+        y: [0, 0],
+        z: [0, 0],
+        line: { color: axisLineColor, width: axisLineWidth },
+        showlegend: false,
+      };
+      // Y-Axis line
+      var yAxisLine = {
+        type: "scatter3d",
+        mode: "lines",
+        x: [0, 0],
+        y: [0, 10],
+        z: [0, 0],
+        line: { color: axisLineColor, width: axisLineWidth },
+        showlegend: false,
+      };
+      // Z-Axis line
+      var zAxisLine = {
+        type: "scatter3d",
+        mode: "lines",
+        x: [0, 0],
+        y: [0, 0],
+        z: [-1, 1],
+        line: { color: axisLineColor, width: axisLineWidth },
+        showlegend: false,
+      };
+
+      // --- ARROWHEAD DATA (Cones) ---
+      // X-Axis Arrowhead
+      var xAxisArrow = {
+        type: "cone",
+        x: [10],
+        y: [0],
+        z: [0],
+        u: [1],
+        v: [0],
+        w: [0],
+        sizemode: "absolute",
+        sizeref: arrowSizeRef,
+        showscale: false,
+        colorscale: [
+          [0, arrowColor],
+          [1, arrowColor],
+        ],
+        showlegend: false,
+      };
+      // Y-Axis Arrowhead
+      var yAxisArrow = {
+        type: "cone",
+        x: [0],
+        y: [10],
+        z: [0],
+        u: [0],
+        v: [1],
+        w: [0],
+        sizemode: "absolute",
+        sizeref: arrowSizeRef,
+        showscale: false,
+        colorscale: [
+          [0, arrowColor],
+          [1, arrowColor],
+        ],
+        showlegend: false,
+      };
+      // Z-Axis Arrowhead
+      var zAxisArrow = {
+        type: "cone",
+        x: [0],
+        y: [0],
+        z: [1],
+        u: [0],
+        v: [0],
+        w: [1],
+        sizemode: "absolute",
+        sizeref: arrowSizeRef / 5,
+        showscale: false,
+        colorscale: [
+          [0, arrowColor],
+          [1, arrowColor],
+        ],
+        showlegend: false,
+      };
+      var zAxisArrowNeg = {
+        type: "cone",
+        x: [0],
+        y: [0],
+        z: [-1],
+        u: [0],
+        v: [0],
+        w: [-1],
+        sizemode: "absolute",
+        sizeref: arrowSizeRef / 5,
+        showscale: false,
+        colorscale: [
+          [0, arrowColor],
+          [1, arrowColor],
+        ],
+        showlegend: false,
+      };
+
+      // --- CUSTOM DATA POINTS (Split for Legend) ---
+      const points = [
+        { x: 4, y: 1, z: 1, label: "ICLR'24", legend: "FedRL", color: "#1f77b4" },
+        { x: 10, y: 9, z: -1, label: "ICML'25", legend: "Graphon Game", color: "#ff7f0e" },
+        { x: 9, y: 0, z: -1, label: "ECAI'24", legend: "Mean Field Game", color: "#2ca02c" },
+        { x: 10, y: 0, z: -1, label: "ICLR'25", color: "#2ca02c" },
+        { x: 4, y: 8, z: 1, label: "Preprint'25", legend: "Personalized Learning", color: "#9467bd" },
+      ];
+
+      const dataPointTraces = points.flatMap(point => ([
+        { // This trace is for the marker and legend entry
+          type: 'scatter3d',
+          mode: 'markers',
+          x: [point.x],
+          y: [point.y],
+          z: [point.z],
+          name: point.legend,
+          marker: { size: 8, color: point.color, symbol: 'circle' },
+          showlegend: !!point.legend,
+        },
+        { // This trace is for the text label only
+          type: 'scatter3d',
+          mode: 'text',
+          x: [point.x],
+          y: [point.y],
+          z: [point.z],
+          text: [point.label],
+          textfont: { color: point.color, size: 10 },
+          textposition: 'middle right',
+          showlegend: false, // Never show text in legend
+        }
+      ]));
+
+      // --- NEW: 3D TEXT LABELS (Split by Axis) ---
+      var labelFont = { color: "#555", size: 10 };
+      var titleFont = { color: "black", size: 12, weight: "bold" };
+
+      // X-Axis Labels
+      var xTickLabels = {
+        type: "scatter3d",
+        mode: "text",
+        showlegend: false,
+        textfont: labelFont,
+        x: [5, 9],
+        y: [-1, -1],
+        z: [0, 0],
+        text: ["N", "∞"],
+      };
+      var xAxisTitle = {
+        type: "scatter3d",
+        mode: "text",
+        showlegend: false,
+        textfont: titleFont,
+        x: [11],
+        y: [-1],
+        z: [0],
+        text: ["# of agents"],
+      };
+
+      // Y-Axis Labels
+      var yTickLabels = {
+        type: "scatter3d",
+        mode: "text",
+        showlegend: false,
+        textfont: labelFont,
+        x: [-1, -1, -1],
+        y: [0, 2, 8],
+        z: [0, 0, 0],
+        text: ["homog.", "low", "high"],
+      };
+      var yAxisTitle = {
+        type: "scatter3d",
+        mode: "text",
+        showlegend: false,
+        textfont: titleFont,
+        x: [-1],
+        y: [11],
+        z: [0],
+        text: ["heterogeneity"],
+      };
+
+      // Z-Axis Labels
+      var zTickLabels = {
+        type: "scatter3d",
+        mode: "text",
+        showlegend: false,
+        textfont: labelFont,
+        x: [-1, -1],
+        y: [-1, -1],
+        z: [-1, 0.8],
+        text: ["compete", "collab"],
+      };
+      var zAxisTitle = {
+        type: "scatter3d",
+        mode: "text",
+        showlegend: false,
+        textfont: titleFont,
+        x: [-1.5],
+        y: [-1.5],
+        z: [0],
+        text: ["interaction"],
+      };
+
+      // Combine all traces into one data array
+      var data = [
+        xAxisLine,
+        yAxisLine,
+        zAxisLine,
+        xAxisArrow,
+        yAxisArrow,
+        zAxisArrow,
+        zAxisArrowNeg,
+      ].concat(dataPointTraces).concat([
+        // Add the new, separated label traces
+        xTickLabels,
+        xAxisTitle,
+        yTickLabels,
+        yAxisTitle,
+        zTickLabels,
+        zAxisTitle,
+      ]);
+
+      // --- LAYOUT ---
+      var layout = {
+        title: "Research Dimensions",
+        showlegend: true,
+        scene: {
+          // X-Axis: Hide default labels, keep range
+          xaxis: {
+            title: "", // <-- Hide default title
+            range: [-2, 11],
+            showticklabels: false, // <-- Hide default ticks
+            showgrid: false,
+            zeroline: false,
+          },
+          // Y-Axis: Hide default labels, keep range
+          yaxis: {
+            title: "", // <-- Hide default title
+            range: [-2, 11],
+            showticklabels: false, // <-- Hide default ticks
+            showgrid: false,
+            zeroline: false,
+          },
+          // Z-Axis: Hide default labels, keep range
+          zaxis: {
+            title: "", // <-- Hide default title
+            range: [-1, 1],
+            showticklabels: false, // <-- Hide default ticks
+            showgrid: false,
+          },
+        },
+        margin: {
+          l: 1,
+          r: 1,
+          b: 1,
+          t: 40,
+        },
+      };
+
+      // Create the plot
+      Plotly.newPlot("myPlot", data, layout);
+
+      // --- DYNAMIC LABEL VISIBILITY ---
+      var myPlot = document.getElementById("myPlot");
+
+      myPlot.on("plotly_relayout", function (eventdata) {
+        // This event fires when the user rotates/zooms the 3D scene
+        if (myPlot.layout.scene && myPlot.layout.scene.camera) {
+          var eye = myPlot.layout.scene.camera.eye;
+
+          // Normalize the camera position vector to ignore zoom level
+          var mag = Math.sqrt(eye.x * eye.x + eye.y * eye.y + eye.z * eye.z);
+          if (mag === 0) return; // Avoid division by zero
+          var normEye = { x: eye.x / mag, y: eye.y / mag, z: eye.z / mag };
+
+          // Set a threshold for when an axis is considered "aligned" with the camera
+          var threshold = 0.95; // Adjust for sensitivity
+
+          // When the camera's normalized position has a large component in one direction
+          // (e.g., abs(normEye.x) is close to 1), it means we are looking ALONG that axis.
+          // In that case, we want to HIDE the labels. So, visibility is true when the
+          // component is SMALLER than the threshold.
+          var xLabelsVisible = Math.abs(normEye.x) < threshold;
+          var yLabelsVisible = Math.abs(normEye.y) < threshold;
+          var zLabelsVisible = Math.abs(normEye.z) < threshold;
+
+          // Update the visibility of the corresponding traces using restyle.
+          // Indices are based on the final `data` array order after splitting traces.
+          // 3: xAxisArrow
+          // 4: yAxisArrow
+          // 5: zAxisArrow, 6: zAxisArrowNeg
+          // 17: xTickLabels, 18: xAxisTitle
+          // 19: yTickLabels, 20: yAxisTitle
+          // 21: zTickLabels, 22: zAxisTitle
+          Plotly.restyle(myPlot, { visible: xLabelsVisible }, [3, 17, 18]);
+          Plotly.restyle(myPlot, { visible: yLabelsVisible }, [4, 19, 20]);
+          Plotly.restyle(myPlot, { visible: zLabelsVisible }, [5, 6, 21, 22]);
+        }
+      });
+    </script>
+  </body>
+</html>
+
