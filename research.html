@@ -6,7 +6,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   </head>
   <body>
-    <div id="myPlot" style="width: 800px; height: 600px"></div>
+    <div id="myPlot" style="width: 600px; height: 600px"></div>
+    <div id="info-card" style="width: 600px; margin-top: 20px"></div>
 
     <script>
       // --- AXIS LINE DATA ---
@@ -121,36 +122,98 @@
 
       // --- CUSTOM DATA POINTS (Split for Legend) ---
       const points = [
-        { x: 4, y: 1, z: 1, label: "ICLR'24", legend: "FedRL", color: "#1f77b4" },
-        { x: 10, y: 9, z: -1, label: "ICML'25", legend: "Graphon Game", color: "#ff7f0e" },
-        { x: 9, y: 0, z: -1, label: "ECAI'24", legend: "Mean Field Game", color: "#2ca02c" },
-        { x: 10, y: 0, z: -1, label: "ICLR'25", color: "#2ca02c" },
-        { x: 4, y: 8, z: 1, label: "Preprint'25", legend: "Personalized Learning", color: "#9467bd" },
+        {
+          x: 4,
+          y: 1,
+          z: 1,
+          label: "ICLR'24",
+          legend: "Federated Reinforcement Learning",
+          color: "#1f77b4",
+          title:
+            "Finite-Time Analysis of On-Policy Heterogeneous Federated Reinforcement Learning",
+          authors:
+            "<strong>Chenyu Zhang</strong>, Han Wang, Aritra Mitra, and James Anderson",
+          summary:
+            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+        },
+        {
+          x: 10,
+          y: 9,
+          z: -1,
+          label: "ICML'25",
+          legend: "Graphon Game",
+          color: "#ff7f0e",
+          title:
+            "Graphon Mean Field Games with a Representative Player: Analysis and Learning Algorithm",
+          authors:
+            "Fuzhong Zhou, <strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
+          summary:
+            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+        },
+        {
+          x: 4,
+          y: 8,
+          z: 1,
+          label: "Preprint'25",
+          legend: "Personalized Collaborative Learning",
+          color: "#d62728",
+          title:
+            "Personalized Collaborative Learning with Affinity-Based Variance Reduction",
+          authors: "<strong>Chenyu Zhang</strong> and Navid Azizan",
+          summary:
+            "We show that collaboration between arbitrarily heterogeneous agents can yield fully personalized solutions with an adaptive, affinity-based speedup.",
+        },
+        {
+          x: 9,
+          y: 0,
+          z: -0.9,
+          label: "ECAI'24",
+          legend: "Mean Field Game",
+          color: "#2ca02c",
+          title: "A Single Online Agent Can Efficiently Learn Mean Field Games",
+          authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
+          summary:
+            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+        },
+        {
+          x: 10,
+          y: 0,
+          z: -1,
+          label: "ICLR'25",
+          color: "#2ca02c",
+          title:
+            "Stochastic Semi-Gradient Descent for Learning Mean Field Games with Population-Aware Function Approximation",
+          authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
+          summary:
+            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+        },
       ];
 
-      const dataPointTraces = points.flatMap(point => ([
-        { // This trace is for the marker and legend entry
-          type: 'scatter3d',
-          mode: 'markers',
+      const dataPointTraces = points.flatMap((point) => [
+        {
+          // This trace is for the marker and legend entry
+          type: "scatter3d",
+          mode: "markers",
           x: [point.x],
           y: [point.y],
           z: [point.z],
           name: point.legend,
-          marker: { size: 8, color: point.color, symbol: 'circle' },
+          marker: { size: 8, color: point.color, symbol: "circle" },
           showlegend: !!point.legend,
         },
-        { // This trace is for the text label only
-          type: 'scatter3d',
-          mode: 'text',
+        {
+          // This trace is for the text label only
+          type: "scatter3d",
+          mode: "text",
           x: [point.x],
           y: [point.y],
           z: [point.z],
           text: [point.label],
           textfont: { color: point.color, size: 10 },
-          textposition: 'middle right',
+          textposition: "middle right",
           showlegend: false, // Never show text in legend
-        }
-      ]));
+        },
+      ]);
 
       // --- NEW: 3D TEXT LABELS (Split by Axis) ---
       var labelFont = { color: "#555", size: 10 };
@@ -231,22 +294,34 @@
         yAxisArrow,
         zAxisArrow,
         zAxisArrowNeg,
-      ].concat(dataPointTraces).concat([
-        // Add the new, separated label traces
-        xTickLabels,
-        xAxisTitle,
-        yTickLabels,
-        yAxisTitle,
-        zTickLabels,
-        zAxisTitle,
-      ]);
+      ]
+        .concat(dataPointTraces)
+        .concat([
+          // Add the new, separated label traces
+          xTickLabels,
+          xAxisTitle,
+          yTickLabels,
+          yAxisTitle,
+          zTickLabels,
+          zAxisTitle,
+        ]);
 
       // --- LAYOUT ---
+
       var layout = {
         title: "Research Dimensions",
         showlegend: true,
+        legend: {
+          orientation: "h",
+          yanchor: "bottom",
+          y: -0.1,
+          xanchor: "center",
+          x: 0.5,
+        },
+
         scene: {
           // X-Axis: Hide default labels, keep range
+
           xaxis: {
             title: "", // <-- Hide default title
             range: [-2, 11],
@@ -273,7 +348,7 @@
         margin: {
           l: 1,
           r: 1,
-          b: 1,
+          b: 80,
           t: 40,
         },
       };
@@ -318,7 +393,30 @@
           Plotly.restyle(myPlot, { visible: zLabelsVisible }, [5, 6, 21, 22]);
         }
       });
+
+      // --- CLICK EVENT HANDLER ---
+      myPlot.on("plotly_click", function (data) {
+        var point = data.points[0];
+        // We only want to show cards for our main data points, not axis lines etc.
+        // The customdata is not directly available on the point, so we check the curveNumber
+        // to see if it's one of the dataPointTraces.
+        // dataPointTraces start after the 7 axis-related traces.
+        if (
+          point.curveNumber >= 7 &&
+          point.curveNumber < 7 + dataPointTraces.length
+        ) {
+          var pointIndex = Math.floor((point.curveNumber - 7) / 2); // Each point has a marker and a text trace
+          var originalPointData = points[pointIndex];
+
+          var card = document.getElementById("info-card");
+          card.innerHTML = `
+            <h3>${originalPointData.title || "Selected Point"}</h3>
+            <p>${originalPointData.authors}</p>
+						<p><em>${originalPointData.label}</em></p>
+            <p>${originalPointData.summary}</p>
+          `;
+        }
+      });
     </script>
   </body>
 </html>
-
