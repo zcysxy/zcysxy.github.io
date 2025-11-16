@@ -140,7 +140,27 @@
       const points = [
         {
           x: 4,
-          y: 1,
+          y: 8,
+          z: 1,
+          label: "Preprint'25",
+          legend: "Personalized Collaborative Learning",
+          color: "#d62728",
+          title:
+            "Personalized Collaborative Learning with Affinity-Based Variance Reduction",
+          authors: "<strong>Chenyu Zhang</strong> and Navid Azizan",
+          summary:
+            "We show that collaboration between arbitrarily heterogeneous agents can yield fully personalized solutions with an adaptive, affinity-based speedup.",
+          keywords: [
+            "heterogeneity",
+            "personalization",
+            "collaboration",
+            "control variates",
+            "variance reduction",
+          ],
+        },
+        {
+          x: 4,
+          y: 2,
           z: 1,
           label: "ICLR'24",
           legend: "Federated Reinforcement Learning",
@@ -151,6 +171,42 @@
             "<strong>Chenyu Zhang</strong>, Han Wang, Aritra Mitra, and James Anderson",
           summary:
             "An agent can expedite the process of learning its own near-optimal policy by leveraging information from other agents with potentially different environments.",
+          keywords: [ "heterogeneity", "federated reinforcement learning", "non-stationary Markov chain",
+          ],
+        },
+        {
+          x: 9,
+          y: 0,
+          z: -0.9,
+          label: "ECAI'24",
+          legend: "Mean Field Game",
+          color: "#2ca02c",
+          title: "A Single Online Agent Can Efficiently Learn Mean Field Games",
+          authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
+          summary:
+            "A single online agent can efficiently learn the equilibria of mean field games.",
+          keywords: [
+            "mean field game",
+            "online learning",
+          ],
+        },
+        {
+          x: 10,
+          y: 0,
+          z: -1,
+          label: "ICLR'25",
+          color: "#2ca02c",
+          title:
+            "Stochastic Semi-Gradient Descent for Learning Mean Field Games with Population-Aware Function Approximation",
+          authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
+          summary:
+            "A simple SGD-type method can we learn mean field games with a large and even continuous state-action space without a forward-backward process.",
+          keywords: [
+            "mean field game",
+            "online learning",
+            "function approximation",
+						"asynchronous learning",
+          ],
         },
         {
           x: 10,
@@ -165,43 +221,7 @@
             "Fuzhong Zhou, <strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
             "We analyze and learn graphon games with discontinuous graphons.",
-        },
-        {
-          x: 4,
-          y: 8,
-          z: 1,
-          label: "Preprint'25",
-          legend: "Personalized Collaborative Learning",
-          color: "#d62728",
-          title:
-            "Personalized Collaborative Learning with Affinity-Based Variance Reduction",
-          authors: "<strong>Chenyu Zhang</strong> and Navid Azizan",
-          summary:
-            "We show that collaboration between arbitrarily heterogeneous agents can yield fully personalized solutions with an adaptive, affinity-based speedup.",
-        },
-        {
-          x: 9,
-          y: 0,
-          z: -0.9,
-          label: "ECAI'24",
-          legend: "Mean Field Game",
-          color: "#2ca02c",
-          title: "A Single Online Agent Can Efficiently Learn Mean Field Games",
-          authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
-          summary:
-            "A single online agent can efficiently learn the equilibria of mean field games.",
-        },
-        {
-          x: 10,
-          y: 0,
-          z: -1,
-          label: "ICLR'25",
-          color: "#2ca02c",
-          title:
-            "Stochastic Semi-Gradient Descent for Learning Mean Field Games with Population-Aware Function Approximation",
-          authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
-          summary:
-            "A simple SGD-type method can we learn mean field games with a large and even continuous state-action space without a forward-backward process.",
+          keywords: ["heterogeneity", "graphon game", "online learning"],
         },
       ];
 
@@ -256,7 +276,7 @@
         mode: "text",
         showlegend: false,
         textfont: titleFont,
-        x: [11],
+        x: [12],
         y: [-1],
         z: [0],
         text: ["# of agents"],
@@ -291,7 +311,7 @@
         showlegend: false,
         textfont: labelFont,
         x: [-1, -1],
-        y: [-1, -1],
+        y: [1.2, 1],
         z: [-1, 0.8],
         text: ["compete", "collab"],
       };
@@ -302,7 +322,7 @@
         textfont: titleFont,
         x: [-1.5],
         y: [-1.5],
-        z: [0],
+        z: [1],
         text: ["interaction"],
       };
 
@@ -345,7 +365,7 @@
 
           xaxis: {
             title: "", // <-- Hide default title
-            range: [-2, 11],
+            range: [-2, 12],
             showticklabels: false, // <-- Hide default ticks
             showgrid: true,
             zeroline: false,
@@ -444,22 +464,32 @@
         ) {
           var pointIndex = Math.floor((point.curveNumber - 7) / 2); // Each point has a marker and a text trace
           var originalPointData = points[pointIndex];
-					Plotly.restyle(myPlot, { opacity: 0.4 }, points.map((_, i) => i * 2 + 7));
-					Plotly.restyle(myPlot, { opacity: 1.0 }, [7 + pointIndex * 2]); // Highlight selected point
-					
+          Plotly.restyle(
+            myPlot,
+            { opacity: 0.4 },
+            points.map((_, i) => i * 2 + 7)
+          );
+          Plotly.restyle(myPlot, { opacity: 1.0 }, [7 + pointIndex * 2]); // Highlight selected point
 
           var card = document.getElementById("info-card");
           card.innerHTML = `
             <h3>${originalPointData.title || "Selected Point"}</h3>
             <p>${originalPointData.authors}</p>
 						<p><em>${originalPointData.label}</em></p>
-            <p>${originalPointData.summary}</p>
+						<p>
+<strong>Keywords</strong>: ${originalPointData.keywords.join(", ")}</br>
+						<strong>Takeaway</strong>: ${originalPointData.summary}
+						</p>
           `;
           card.style.display = "block";
         } else {
           // Hide card if not a data point
           document.getElementById("info-card").style.display = "none";
-					Plotly.restyle(myPlot, { opacity: 1.0 }, points.map((_, i) => i * 2 + 7));
+          Plotly.restyle(
+            myPlot,
+            { opacity: 1.0 },
+            points.map((_, i) => i * 2 + 7)
+          );
         }
       });
     </script>
