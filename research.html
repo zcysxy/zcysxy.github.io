@@ -4,10 +4,26 @@
     <title>Research Dimensions</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+      #info-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        padding-bottom: 0px;
+        background-color: #f9f9f9;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      #info-card h3 {
+        margin-top: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="myPlot" style="width: 750px; height: 600px"></div>
-    <div id="info-card" style="width: 750px; margin-top: -60px; position: relative; z-index: 10;"></div>
+    <div
+      id="info-card"
+      style="width: 750px; margin-top: -60px; position: relative; z-index: 10"
+    ></div>
 
     <script>
       // --- AXIS LINE DATA ---
@@ -134,7 +150,7 @@
           authors:
             "<strong>Chenyu Zhang</strong>, Han Wang, Aritra Mitra, and James Anderson",
           summary:
-            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+            "An agent can expedite the process of learning its own near-optimal policy by leveraging information from other agents with potentially different environments.",
         },
         {
           x: 10,
@@ -148,7 +164,7 @@
           authors:
             "Fuzhong Zhou, <strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
-            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+            "We analyze and learn graphon games with discontinuous graphons.",
         },
         {
           x: 4,
@@ -173,7 +189,7 @@
           title: "A Single Online Agent Can Efficiently Learn Mean Field Games",
           authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
-            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+            "A single online agent can efficiently learn the equilibria of mean field games.",
         },
         {
           x: 10,
@@ -185,7 +201,7 @@
             "Stochastic Semi-Gradient Descent for Learning Mean Field Games with Population-Aware Function Approximation",
           authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
-            "This paper demonstrates that a single online learning agent can efficiently learn and approximate the Nash equilibrium in large-population mean field games, providing a scalable solution to complex multi-agent interactions.",
+            "A simple SGD-type method can we learn mean field games with a large and even continuous state-action space without a forward-backward process.",
         },
       ];
 
@@ -198,7 +214,12 @@
           y: [point.y],
           z: [point.z],
           name: point.legend,
-          marker: { size: 8, color: point.color, symbol: "circle" },
+          marker: {
+            size: 8,
+            color: point.color,
+            symbol: "circle",
+            line: { width: 0, color: point.color },
+          },
           showlegend: !!point.legend,
         },
         {
@@ -326,7 +347,7 @@
             title: "", // <-- Hide default title
             range: [-2, 11],
             showticklabels: false, // <-- Hide default ticks
-            showgrid: false,
+            showgrid: true,
             zeroline: false,
           },
           // Y-Axis: Hide default labels, keep range
@@ -334,7 +355,7 @@
             title: "", // <-- Hide default title
             range: [-2, 11],
             showticklabels: false, // <-- Hide default ticks
-            showgrid: false,
+            showgrid: true,
             zeroline: false,
           },
           // Z-Axis: Hide default labels, keep range
@@ -342,7 +363,8 @@
             title: "", // <-- Hide default title
             range: [-1, 1],
             showticklabels: false, // <-- Hide default ticks
-            showgrid: false,
+            showgrid: true,
+            zeroline: false,
           },
         },
         margin: {
@@ -391,9 +413,24 @@
           Plotly.restyle(myPlot, { visible: xLabelsVisible }, [3, 17, 18]);
           Plotly.restyle(myPlot, { visible: yLabelsVisible }, [4, 19, 20]);
           Plotly.restyle(myPlot, { visible: zLabelsVisible }, [5, 6, 21, 22]);
+          // Only update grid if needed to avoid infinite loop
+          var scene = myPlot.layout.scene;
+          var needsUpdate =
+            scene.xaxis.showgrid !== xLabelsVisible ||
+            scene.yaxis.showgrid !== yLabelsVisible ||
+            scene.zaxis.showgrid !== zLabelsVisible;
+
+          if (needsUpdate) {
+            Plotly.relayout(myPlot, {
+              "scene.xaxis.showgrid": xLabelsVisible,
+              "scene.yaxis.showgrid": yLabelsVisible,
+              "scene.zaxis.showgrid": zLabelsVisible,
+            });
+          }
         }
       });
 
+      document.getElementById("info-card").style.display = "none";
       // --- CLICK EVENT HANDLER ---
       myPlot.on("plotly_click", function (data) {
         var point = data.points[0];
@@ -407,6 +444,9 @@
         ) {
           var pointIndex = Math.floor((point.curveNumber - 7) / 2); // Each point has a marker and a text trace
           var originalPointData = points[pointIndex];
+					Plotly.restyle(myPlot, { opacity: 0.4 }, points.map((_, i) => i * 2 + 7));
+					Plotly.restyle(myPlot, { opacity: 1.0 }, [7 + pointIndex * 2]); // Highlight selected point
+					
 
           var card = document.getElementById("info-card");
           card.innerHTML = `
@@ -415,6 +455,11 @@
 						<p><em>${originalPointData.label}</em></p>
             <p>${originalPointData.summary}</p>
           `;
+          card.style.display = "block";
+        } else {
+          // Hide card if not a data point
+          document.getElementById("info-card").style.display = "none";
+					Plotly.restyle(myPlot, { opacity: 1.0 }, points.map((_, i) => i * 2 + 7));
         }
       });
     </script>
