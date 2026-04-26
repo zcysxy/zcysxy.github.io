@@ -220,6 +220,28 @@ code.date {
   -webkit-box-decoration-break: clone;
 }
 
+.news-container {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 15px;
+  margin-bottom: 1em;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.news-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.news-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.news-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
 .flow-row {
 	display: flex;
 	flex-wrap: wrap;
