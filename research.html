@@ -4,14 +4,16 @@
     <title>Research Dimensions</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+		<link rel="stylesheet" type="text/css" href="./main.css">
     <style>
+			body {
+				background: none;
+			}
       #info-card {
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 15px;
         padding: 15px;
         padding-bottom: 0px;
-        background-color: #f9f9f9;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
       }
       #info-card h3 {
         margin-top: 0;
@@ -19,11 +21,13 @@
     </style>
   </head>
   <body>
+		<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px">
     <div id="myPlot" style="width: 750px; height: 600px"></div>
     <div
       id="info-card"
-      style="width: 750px; margin-top: -60px; position: relative; z-index: 10"
+      style="width: 750px; margin-top: -60px; position: relative; z-index: 10; background-color: transparent;"
     ></div>
+		</div>
 
     <script>
       // --- AXIS LINE DATA ---
@@ -147,6 +151,7 @@
           color: "#d62728",
           title:
             "Personalized Collaborative Learning with Affinity-Based Variance Reduction",
+					url: "https://openreview.net/forum?id=OvCyDyW9kU",
           authors: "<strong>Chenyu Zhang</strong> and Navid Azizan",
           summary:
             "We show that collaboration between arbitrarily heterogeneous agents can yield fully personalized solutions with an adaptive, affinity-based speedup.",
@@ -167,6 +172,7 @@
           color: "#1f77b4",
           title:
             "Finite-Time Analysis of On-Policy Heterogeneous Federated Reinforcement Learning",
+					url: "https://openreview.net/pdf?id=D2eOVqPX9g",
           authors:
             "<strong>Chenyu Zhang</strong>, Han Wang, Aritra Mitra, and James Anderson",
           summary:
@@ -182,6 +188,7 @@
           legend: "Mean Field Game",
           color: "#2ca02c",
           title: "A Single Online Agent Can Efficiently Learn Mean Field Games",
+					url: "https://doi.org/10.3233/FAIA240910",
           authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
             "A single online agent can efficiently learn the equilibria of mean field games.",
@@ -198,6 +205,7 @@
           color: "#2ca02c",
           title:
             "Stochastic Semi-Gradient Descent for Learning Mean Field Games with Population-Aware Function Approximation",
+					url: "https://openreview.net/forum?id=tfO07iz0b9",
           authors: "<strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
             "We propose a simple SGD-type method that can stably and efficiently learn mean field games with a large and even continuous state-action space without a forward-backward process.",
@@ -217,6 +225,7 @@
           color: "#ff7f0e",
           title:
             "Graphon Mean Field Games with a Representative Player: Analysis and Learning Algorithm",
+					url: "https://arxiv.org/abs/2405.08005",
           authors:
             "Fuzhong Zhou, <strong>Chenyu Zhang</strong>, Xu Chen, and Xuan Di",
           summary:
@@ -473,7 +482,11 @@
 
           var card = document.getElementById("info-card");
           card.innerHTML = `
-            <h3>${originalPointData.title || "Selected Point"}</h3>
+						<h3>
+							<a href="${originalPointData.url || '#'}" target="_blank" rel="noopener">
+								${originalPointData.title || "Selected Point"}
+							</a>
+						</h3>
             <p>${originalPointData.authors}</p>
 						<p><em>${originalPointData.label}</em></p>
 						<p>
