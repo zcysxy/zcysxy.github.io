@@ -7,6 +7,41 @@ body {
   background-color: #eee;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(238, 238, 238, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1.5px solid #aaa;
+  padding: 0.5em 0%;
+  margin: 1em 0% -1.1em;
+}
+
+.top-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.top-nav ul li {
+  display: inline-block;
+}
+
+.top-nav ul li a {
+  font-size: 0.95em;
+}
+
+:target {
+  scroll-margin-top: 2.50em;
+}
+
 h1 {
   font-size: 2em;
   font-family: "Helvetica", "Arial", "Sans-Serif";
@@ -183,7 +218,7 @@ span.nodeLabel {
 
 nav ul,
 footer ul {
-  font-family: "Helvetica", "Arial", "Sans-Serif";
+  font-family: monospace, "Helvetica", "Arial", "Sans-Serif";
   padding: 0px;
   list-style: none;
   font-weight: bold;
@@ -246,17 +281,17 @@ code.date {
 .flow-row {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	/* justify-content: space-around; */
 	gap: 1%;
 }
 
 .flow-row-item {
 	flex: 1 1 21%;
-	margin: 0 0 1em;
+	margin: 0 0 1%;
 	border-radius: 15px;
 	border: 1px solid #aaa;
 	padding: 1%;
-	max-width: 25%;
+	max-width: 22%;
 }
 .flow-row-item img {
 	width: 95%;
@@ -266,6 +301,7 @@ code.date {
 }
 
 .flow-row-item .caption {
+	margin-top: 0.5em;
 	text-align: center;
 }
 .flow-row-item .caption span {
@@ -279,10 +315,17 @@ code.date {
 	border-image: linear-gradient(to right, rgba(0,0,0,0), #ddd 40%, #ddd 60%, rgba(0,0,0,0) 100%) 1;
 }
 
+@media (max-width: 1200px) {
+	.flow-row-item {
+		flex: 1 1 30%;
+		max-width: 30%;
+	}
+}
+
 @media (max-width: 600px) {
 	.flow-row-item {
 		flex: 1 1 45%;
-		max-width: 50%;
+		max-width: 45%;
 	}
 }
 
