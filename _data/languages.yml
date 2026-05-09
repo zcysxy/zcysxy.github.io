@@ -1,0 +1,54 @@
+Lua:
+  color: '2C2D72'
+  logo: lua
+YAML:
+  color: 'CB171E'
+  logo: yaml
+LaTeX:
+  color: '008080'
+  logo: latex
+TypeScript:
+  color: '3178C6'
+  logo: typescript
+Sass:
+  color: 'CC6699'
+  logo: sass
+CSS:
+  color: '1572B6'
+  logo: css
+Markdown:
+  color: '000000'
+  logo: markdown
+HTML:
+  color: 'E34F26'
+  logo: html5
+Obsidian:
+  color: '7C3AED'
+  logo: obsidian
+R:
+  color: '276DC3'
+  logo: r
+JavaScript:
+  color: 'F7DF1E'
+  logo: javascript
+D3.js:
+  color: 'F9A03C'
+  logo: d3dotjs
+Python:
+  color: '3776AB'
+  logo: python
+PostgreSQL:
+  color: '4169E1'
+  logo: postgresql
+Flask:
+  color: '000000'
+  logo: flask
+Jinja:
+  color: 'B41717'
+  logo: jinja
+Bootstrap:
+  color: '7952B3'
+  logo: bootstrap
+XAML:
+  color: '0C54C2'
+  logo: xaml

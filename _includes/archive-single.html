@@ -1,0 +1,108 @@
+{% include base_path %}
+
+{% if post.header.teaser %}
+{% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+{% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.id %}
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+{% assign title = post.title %}
+{% endif %}
+
+<div class="{{ include.type | default: " list" }}__item{% if post.cover and include.type != 'grid' %} list__item--with-cover{% endif %}">
+	{% if post.cover and include.type != 'grid' %}<span class="archive__item-cover-wrap"><img onclick="window.open({{ post.paperurl }}'')" class="archive__item-cover" src="{% if post.cover contains '://' %}{{ post.cover }}{% else %}{{ post.cover | relative_url }}{% endif %}" alt="cover"></span>{% endif %}
+	<article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+		{% if include.type == "grid" %}
+		{% assign grid_img = teaser | default: post.cover %}
+		{% if grid_img %}
+		<div class="archive__item-teaser">
+			<img src="{% if grid_img contains '://' %}{{ grid_img }}{% else %}{{ grid_img | relative_url }}{% endif %}" alt="">
+		</div>
+		{% endif %}
+		{% endif %}
+
+		{% if post.collection != 'bio' %}
+		<h3 class="archive__item-title" itemprop="headline">
+			{% comment %}
+			{% if post.link %}
+			<a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i
+					class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+			{% else %}
+			<a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+			{% endif %}
+			{% endcomment %}
+			<a href="{{ post.paperurl }}">{{ title }}</a>
+		</h3>
+		{% endif %}
+
+		{% if post.read_time %}
+		<p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
+		{% endif %}
+
+		{% if post.collection == 'teaching' %}
+		<p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
+		{% elsif post.collection == 'publications' %}
+		{% if post.authors %}<p>{% assign last_idx = post.authors.size | minus: 1 %}{% for author in post.authors %}{% assign author_name = author.name | default: author %}{% if site.author.name contains author_name %}<strong>{{ author_name }}</strong>{% else %}{{ author_name }}{% endif %}{% unless forloop.last %}{% if post.authors.size == 2 %} and {% elsif forloop.index == last_idx %}, and {% else %}, {% endif %}{% endunless %}{% endfor %}</p>{% endif %}
+		<p><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}.</p>
+
+		{% elsif post.collection == 'bio' %}
+		{% if post.title %}<span>{{ post.title }}</span>{% endif %}
+		{% if post.degree %}<span>{{ post.degree }}</span>{% endif %}
+		{% if post.field %}<span>{{ post.field }}</span>{% endif %}
+		{% if post.years %}<span>({{ post.years }})</span>{% endif %}
+		{% if post.advisors %}<span>{{ post.advisor_label | default: 'Worked with' }}<br>{% for advisor in post.advisors %}<a href="{{ advisor.url }}">{{ advisor.name }}</a>{% unless forloop.last %} &amp; {% endunless %}{% endfor %}</span>{% endif %}
+		{% elsif post.date %}
+		<p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{
+				site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time
+				datetime="{{ post.date | default: " 1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" |
+				date: "%B %d, %Y" }}</time></p>
+		{% endif %}
+
+		{% if post.excerpt and site.read_more != 'enabled' %}
+		<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+		{% elsif post.excerpt and site.read_more == 'enabled' %}
+		<p class="archive__item-excerpt" itemprop="description">
+		<p>{{ post.excerpt | markdownify | remove: '
+		<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p>
+		</p>
+		{% endif %}
+
+		{% unless post.collection == 'bio' %}
+		<p class="badge">
+			{% if post.collection == 'projects' %}
+				{% if post.languages %}{% for lang in post.languages %}{% assign lang_data = site.data.languages[lang] %}<img alt="{{ lang }}" src="https://img.shields.io/badge/-{{ lang | url_encode }}-{{ lang_data.color }}?logo={{ lang_data.logo }}&logoColor=white">
+				{% endfor %}{% endif %}
+				{% if post.repo %}
+					{% if post.show_version %}<a href="https://github.com/{{ post.repo }}/releases" target="_blank"><img alt="Version" src="https://img.shields.io/github/v/release/{{ post.repo }}?label=Version&color=4aa484"></a>
+					{% endif %}
+					<a href="https://github.com/{{ post.repo }}" target="_blank"><img alt="Stars" src="https://img.shields.io/github/stars/{{ post.repo }}?style=social"></a>
+				{% endif %}
+				{% if post.links %}{% for link in post.links %}<a href="{{ link.url }}"><img alt="{{ link.name }}" src="https://img.shields.io/badge/-{{ link.name | url_encode }}-{{ link.color }}?logo={{ link.logo }}&logoColor=white"></a>
+				{% endfor %}{% endif %}
+			{% else %}
+				{% if post.paperurl %}
+				<a href="{{ $post.paperurl }}"><img alt="Static Badge"
+						src="https://img.shields.io/badge/pdf-{{ post.paperplatform | default:'arXiv' | url_encode }}-4aa484?style=flat-square"></a>
+				{% endif %}
+				<img alt="Static Badge"
+					src="https://img.shields.io/badge/status-{{ post.status | default:'under review' }}-4aa484?style=flat-square">
+				{% if post.bibtexurl %}
+				<a href="{{ base_path }}../files/{{ post.bibtexurl }}" target="_blank"><img alt="Static Badge"
+						src="https://img.shields.io/badge/cite-BibTex-4aa484?style=flat-square"></a>
+				{% endif %}
+				{% if post.preurl %}
+				<a href="{{ post.preurl }}"><img alt="Static Badge"
+						src="https://img.shields.io/badge/presentation-{{ post.pretype | deault: 'poster' }}-4aa484?style=flat-square"></a>
+				{% endif %}
+				{% if post.doi %}
+				<a href="{{ post.paperurl }}" target="_blank"><img alt="citations"
+						src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.juleskreuer.eu%2Fcitation-badge.php%3Fshield%26doi%3D{{ post.doi | url_encode }}&style=flat-square&color=4aa484&label=citations"></a>
+				{% endif %}
+			{% endif %}
+		</p>
+		{% endunless %}
+	</article>
+</div>

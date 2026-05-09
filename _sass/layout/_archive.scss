@@ -1,0 +1,352 @@
+/* ==========================================================================
+   ARCHIVE
+   ========================================================================== */
+
+.sidebar + .archive {
+  @include breakpoint($medium) {
+    @include span(9 of 12);
+  }
+
+  @include breakpoint($large) {
+    @include span(9 of 12 last);
+    @include prefix(0.5 of 12);
+  }
+}
+
+.archive {
+  margin-bottom: 2em;
+
+  @include breakpoint($medium) {
+    @include span(12 of 12);
+  }
+
+  @include breakpoint($large) {
+    width: span(10 of 12);
+    float: none;
+    margin: 0 auto;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+      }
+    }
+  }
+}
+
+.archive__subtitle {
+  margin: 1.414em 0 0;
+  padding-bottom: 0.5em;
+  font-size: $type-size-5;
+  color: var(--global-text-color-light);
+  border-bottom: 1px solid var(--global-border-color);
+
+  + .list__item .archive__item-title {
+    margin-top: 0.5em;
+  }
+}
+
+.archive__item-title {
+  margin-top: 0.0em;
+  margin-bottom: 0.25em;
+  /* font-family: $serif; */
+
+  a {
+    text-decoration: none;
+  }
+  a + a {
+    opacity: 0.5;
+  }
+}
+
+/* remove border*/
+.page__content {
+
+  .archive__item-title {
+    margin-top: 1em;
+    border-bottom: none;
+  }
+}
+
+.archive__item-excerpt {
+  margin-top: 0;
+  font-size: $type-size-6;
+
+  & + p {
+    text-indent: 0;
+  }
+}
+
+.archive__item-teaser {
+  border-radius: $border-radius;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.archive__item:hover {
+  .archive__item-teaser {
+    box-shadow: 0 0 10px rgba(#000, 0.25);
+  }
+
+  .archive__item-title {
+    text-decoration: underline;
+  }
+}
+
+
+/*
+   List view
+   ========================================================================== */
+
+.list__item {
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  margin: 10px 0;
+
+  article {
+    margin: 10px;
+
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  @include breakpoint($medium) {
+    padding-right: $right-sidebar-width-narrow;
+  }
+
+  @include breakpoint($large) {
+    padding-right: $right-sidebar-width;
+  }
+
+  @include breakpoint($x-large) {
+    padding-right: $right-sidebar-width-wide;
+  }
+
+  .page__meta {
+    margin: 0 0 4px;
+  }
+}
+
+.list__item--with-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  padding-right: 0;
+
+  @include breakpoint($small) {
+    flex-direction: row;
+  }
+
+  @include breakpoint($medium) { padding-right: 0; }
+  @include breakpoint($large)  { padding-right: 0; }
+  @include breakpoint($x-large){ padding-right: 0; }
+
+  .archive__item-cover-wrap {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 180px;
+
+    @include breakpoint($small) {
+      flex: 0 0 30%;
+      width: auto;
+      height: auto;
+      align-self: stretch;
+    }
+  }
+
+  .archive__item-cover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  article.archive__item {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0.5em 1em;
+    overflow-x: hidden;
+  }
+}
+
+
+/*
+   Grid view
+   ========================================================================== */
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em;
+  justify-content: center;
+}
+
+.grid__item {
+  flex: 1 1 100%;
+  max-width: 100%;
+  min-width: 200px;
+  margin: 0;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  padding: 1%;
+  text-align: center;
+
+  .page__meta {
+    margin: 0 0 4px;
+  }
+
+  .archive__item-title {
+    margin-top: 0.5em;
+    /* font-size: $type-size-5; */
+  }
+
+  .archive__item-excerpt {
+    display: none;
+  }
+
+  .archive__item-teaser img {
+    max-width: 95%;
+    height: auto;
+  }
+
+  span:not(:last-child) {
+    display: block;
+    padding: 5px;
+    /* margin-top: 0.5em; */
+    /* font-size: $type-size-6; */
+    border-bottom: 1px solid $lighter-gray;
+    border-image: linear-gradient(to right, rgba(0,0,0,0), #ddd 40%, #ddd 60%, rgba(0,0,0,0) 100%) 1
+  }
+
+  @include breakpoint($small) {
+    flex: 1 1 45%;
+    max-width: 48%;
+
+    /* .archive__item-teaser { */
+    /*   max-height: 200px; */
+    /* } */
+  }
+
+  @include breakpoint($medium) {
+    flex: 1 1 21%;
+    max-width: 24%;
+
+    /* .archive__item-teaser { */
+    /*   max-height: 120px; */
+    /* } */
+
+    .archive__item-excerpt {
+      display: block;
+      font-size: $type-size-6;
+    }
+  }
+}
+
+
+/*
+   Features
+   ========================================================================== */
+
+.feature__wrapper {
+  @include clearfix();
+  margin-bottom: 2em;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.feature__item {
+  margin-bottom: 2em;
+  font-size: 1.25rem;
+
+  @include breakpoint($small) {
+    margin-bottom: 0;
+    @include gallery(4 of 12);
+
+    .feature__item-teaser {
+      max-height: 200px;
+      overflow: hidden;
+    }
+  }
+
+  &--left {
+    @include full();
+    font-size: 1.25rem;
+
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint($small) {
+      .archive__item-teaser {
+        @include span(5 of 12);
+      }
+
+      .archive__item-body {
+        @include span(7 of 12 last);
+        @include prefix(0.5 of 12);
+        @include suffix(1 of 12);
+      }
+    }
+  }
+
+  &--right {
+    @include full();
+    font-size: 1.25rem;
+
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint($small) {
+      text-align: right;
+
+      .archive__item-teaser {
+        @include span(5 of 12 rtl);
+      }
+
+      .archive__item-body {
+        @include span(7 of 12 last rtl);
+        @include prefix(0.5 of 12);
+        @include suffix(1 of 12);
+      }
+    }
+  }
+
+  &--center {
+    @include full();
+    font-size: 1.25rem;
+
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint($small) {
+      text-align: center;
+
+      .archive__item-teaser {
+        margin: 0 auto;
+        width: span(5 of 12);
+      }
+
+      .archive__item-body {
+        margin: 0 auto;
+        width: span(7 of 12);
+      }
+    }
+  }
+}

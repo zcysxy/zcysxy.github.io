@@ -1,0 +1,354 @@
+Attaching to jekyll-site-1
+jekyll-site-1  | Configuration file: _config.yml
+jekyll-site-1  | Configuration file: _config_docker.yml
+jekyll-site-1  |             Source: /usr/src/app
+jekyll-site-1  |        Destination: /usr/src/app/_site
+jekyll-site-1  |  Incremental build: disabled. Enable with --incremental
+jekyll-site-1  |       Generating... 
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     done in 5.05 seconds.
+jekyll-site-1  |  Auto-regeneration: enabled for '/usr/src/app'
+jekyll-site-1  |     Server address: http://0.0.0.0:4000/
+jekyll-site-1  |   Server running... press ctrl-c to stop.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:14:41
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:14:45] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.395659044 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:14:47
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:14:47] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.644106169 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:15:54
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.877817127 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:15:59
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.908928128 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:17:01
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.006940794 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:17:06
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.053372613 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:17:57
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:18:02] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:18:03] ERROR '/bio/assets/salt.ico' not found.
+jekyll-site-1  |                     ...done in 5.903107628 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:18:03
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:18:04] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:18:06] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.849274961 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:18:09
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:18:13] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.17098228 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:18:15] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:19:15
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.059855378 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:19:20
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.949513961 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:20:04
+jekyll-site-1  |                     _pages/bio.md
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.957529211 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:20:09
+jekyll-site-1  |                     _pages/bio.md
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.106504821 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:20:23
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.730414836 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:20:28
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.906502752 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:20:33
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.077052044 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:21:32
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.786207877 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:21:37
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.655052613 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:23:43
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.646050627 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:23:48
+jekyll-site-1  |                     log.txt
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.605835419 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:29:57] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:30:55] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:30:55] ERROR '/images/editing-talk.png' not found.
+jekyll-site-1  | [2026-05-09 08:30:59] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:31:02] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:31:02] ERROR '/images/editing-talk.png' not found.
+jekyll-site-1  | [2026-05-09 08:31:04] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:32:13
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.862944294 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:32:18
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.556423961 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:32:25] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:32:39
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:32:44] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 6.065258447 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:32:46
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  | [2026-05-09 08:32:46] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.290467086 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:34:01
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:34:05] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:34:07] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 6.666376795 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:34:08
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:34:08] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.862016072 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:34:14
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:34:15] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.414499419 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:34:19
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.258402836 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:34:32] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:35:04
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.957621335 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:35:09
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.851634529 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:35:18] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:35:20] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:35:23
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:35:24] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:35:27] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  | [2026-05-09 08:35:28] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 6.050854753 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:35:30
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:35:30] ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found.
+jekyll-site-1  |                     ...done in 5.081541628 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:36:43
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.213993044 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:36:48
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.142201919 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:36:53
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.738040627 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:38:18] ERROR '/images/editing-talk.png' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:39:12
+jekyll-site-1  |                     _includes/archive-single.html
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.356421169 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:39:17
+jekyll-site-1  |                     _includes/archive-single.html
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.178319794 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:39:37
+jekyll-site-1  |                     _sass/layout/_sidebar.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.950725155 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:39:42
+jekyll-site-1  |                     _sass/layout/_sidebar.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.199070545 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:39:48
+jekyll-site-1  |                     _sass/layout/_page.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.438844544 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:39:54
+jekyll-site-1  |                     _sass/layout/_page.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  | [2026-05-09 08:39:57] ERROR '/images/editing-talk.png' not found.
+jekyll-site-1  |                     ...done in 5.113683711 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:40:13
+jekyll-site-1  |                     _sass/layout/_page.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.827119461 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:40:18
+jekyll-site-1  |                     _sass/layout/_page.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.869616502 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:40:28] ERROR '/images/editing-talk.png' not found.
+jekyll-site-1  | [2026-05-09 08:40:28] ERROR '/assets/salt.ico' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:02
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.014029711 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:07
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.909156238 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:13
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.036151919 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:24
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.975814752 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:30
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.776097669 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:52
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.791147336 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:42:58
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.110025586 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:43:28
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.550554545 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:43:34
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.973345836 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:44:23
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.332845836 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:44:28
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.133771586 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:44:52
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.389341711 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:44:58
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.860548461 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:46:11
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.026406294 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:46:16
+jekyll-site-1  |                     _sass/layout/_archive.scss
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 4.930856919 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:49:49] ERROR '/images/editing-talk.png' not found.
+jekyll-site-1  | [2026-05-09 08:50:12] ERROR '/images/500x300.png' not found.
+jekyll-site-1  | [2026-05-09 08:50:23] ERROR '/images/500x300.png' not found.
+jekyll-site-1  | [2026-05-09 08:50:28] ERROR '/news/' not found.
+jekyll-site-1  | [2026-05-09 08:50:55] ERROR '/news/' not found.
+jekyll-site-1  | [2026-05-09 08:51:02] ERROR '/news/' not found.
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:52:26
+jekyll-site-1  |                     _includes/archive-single.html
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.426209378 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  |       Regenerating: 1 file(s) changed at 2026-05-09 08:52:32
+jekyll-site-1  |                     _includes/archive-single.html
+jekyll-site-1  |        Jekyll Feed: Generating feed for posts
+jekyll-site-1  |                     ...done in 5.080049377 seconds.
+jekyll-site-1  |                     
+jekyll-site-1  | [2026-05-09 08:52:51] ERROR '/images/500x300.png' not found.
+jekyll-site-1  | [2026-05-09 08:52:55] ERROR '/news/' not found.
+jekyll-site-1  | [2026-05-09 08:53:50] ERROR '/images/editing-talk.png' not found.

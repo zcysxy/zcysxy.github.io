@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rn '\\\\$x-large\\\\s*:\\\\|\\\\$large\\\\s*:\\\\|\\\\$max-width\\\\s*:' _sass/_variables.scss)",
+      "Bash(grep -rn '\\\\$x-large\\\\s*:' _sass/ '--include=*.scss')",
+      "Bash(grep -E '\\\\$large\\\\s*:|\\\\$x-large\\\\s*:' _sass/_themes.scss)",
+      "Bash(grep -rn '\\\\$border-radius' /Users/ce/Library/CloudStorage/OneDrive-Personal/1-ME/12-Publish/22.01-io/_sass)"
+    ]
+  }
+}
