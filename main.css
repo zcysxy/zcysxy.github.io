@@ -42,9 +42,12 @@ html {
   scroll-margin-top: 2.48em;
 }
 
+h1, h2, h3 {
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+}
+
 h1 {
   font-size: 2em;
-  font-family: "Helvetica", "Arial", "Sans-Serif";
   margin-left: 5px;
 }
 
