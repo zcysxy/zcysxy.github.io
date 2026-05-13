@@ -86,7 +86,14 @@
 				</ul>
 			</div>
 		</div>
-		<div class="pic"><img src="assets/profile.jpg" alt="profile"></div>
+		<div class="pic">
+			<button class="pic-flipper" type="button" aria-label="Flip profile photo" title="Click to flip">
+				<span class="pic-flipper-inner">
+					<img class="pic-face pic-front" src="assets/profile.jpg" alt="profile">
+					<img class="pic-face pic-back" src="assets/hans_zoomed.png" alt="hand-drawn portrait">
+				</span>
+			</button>
+		</div>
 	</div>
 
 	<nav class="top-nav">
@@ -624,6 +631,15 @@
 			// Mermaid and webfonts render async — recompute after layout settles.
 			window.addEventListener('load', () => {recompute(); setTimeout(recompute, 300);});
 			recompute();
+		})();
+
+		// Profile photo flip on click
+		(function () {
+			const flipper = document.querySelector('.pic-flipper');
+			if (!flipper) return;
+			flipper.addEventListener('click', () => {
+				flipper.classList.toggle('flipped');
+			});
 		})();
 
 		// Cursor-tracking glow on cards

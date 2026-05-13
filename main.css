@@ -75,10 +75,45 @@ h3 {
 }
 
 .pic img {
-  width: auto;
-  height: auto;
+  width: 200px;
+  height: 200px;
   max-height: inherit;
   max-width: 100%;
+}
+
+.pic-flipper {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  max-height: inherit;
+  perspective: 1000px;
+}
+.pic-flipper-inner {
+  display: block;
+  position: relative;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+.pic-flipper.flipped .pic-flipper-inner {
+  transform: rotateY(180deg);
+}
+.pic-face {
+  display: block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.pic img.pic-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotateY(180deg);
 }
 
 @media (max-width: 800px) {
