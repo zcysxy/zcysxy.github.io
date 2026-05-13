@@ -9,6 +9,8 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-size: 18px;
   background-color: #eee;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.010  0 0 0 0 0.055  0 0 0 0 0.046  0 0 0 0.035 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-attachment: fixed;
 }
 
 html {
@@ -354,4 +356,92 @@ code.date {
 
 .mermaid {
 	text-align: center;
+}
+
+/* Pinyin tooltip on the Chinese name */
+.pinyin {
+  cursor: help;
+  text-decoration: underline dotted rgba(0, 0, 0, 0.28);
+  text-underline-offset: 0.18em;
+}
+
+/* Hover lift on cards */
+ul.pub li,
+.flow-row-item {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+ul.pub li:hover,
+.flow-row-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgb(26 141 116);
+}
+
+/* Scroll progress bar — sits on the nav's bottom border */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1.5px;
+  height: 1.5px;
+  width: 0;
+  background-color: rgb(26 141 116);
+  pointer-events: none;
+}
+
+/* Auto dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1b1d1c;
+    color: #ddd;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.80  0 0 0 0 0.70  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  p, li {
+    color: #cfcfcf;
+  }
+  a {
+    color: rgb(96 210 178);
+  }
+  hr {
+    border-color: #555;
+  }
+  ul.pub li,
+  .flow-row-item {
+    border-color: #555;
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  ul.pub li:hover,
+  .flow-row-item:hover {
+    border-color: rgb(96 210 178);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+  .top-nav {
+    background-color: rgba(27, 29, 28, 0.72);
+    border-bottom-color: #555;
+  }
+  .scroll-progress {
+    background-color: rgb(96 210 178);
+  }
+  code.date {
+    background-color: #333;
+    color: #ddd;
+  }
+  .status {
+    color: #999;
+  }
+  .news-container {
+    scrollbar-color: #555 transparent;
+  }
+  .news-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+  }
+  .flow-row-item .caption > :not(:last-child) {
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), #444 40%, #444 60%, rgba(0, 0, 0, 0) 100%) 1;
+  }
+  .pinyin {
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+  }
+  .pic img {
+    /* gentle softening so the profile photo doesn't glare against dark bg */
+    filter: brightness(0.92);
+  }
 }

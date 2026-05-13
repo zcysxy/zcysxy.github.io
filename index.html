@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Chenyu Zhang | MIT LIDS PhD</title>
+	<title>Chenyu Zhang</title>
 	<meta name="description"
-		content="Chenyu Zhang is a PhD student at MIT LIDS & IDSS researching multi-agent decision-making, reinforcement learning, federated learning, and optimization.">
+		content="Chenyu Zhang is a PhD student at MIT LIDS & IDSS researching multi-agent decision-making, through the lens of learning, statistics, optimization, control, games, and networks.">
 	<meta name="author" content="Chenyu Zhang">
 	<meta name="keywords"
 		content="Chenyu Zhang, MIT, LIDS, IDSS, Columbia, Fudan, Optimization, Reinforcement Learning, Federated Learning, Mean Field Games, Multi-Agent Learning" />
@@ -13,9 +13,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta property="og:type" content="profile">
-	<meta property="og:title" content="Chenyu Zhang | MIT LIDS PhD">
+	<meta property="og:title" content="Chenyu Zhang | MIT PhD">
 	<meta property="og:description"
-		content="PhD student at MIT LIDS & IDSS. Multi-agent decision-making, reinforcement learning, federated learning, optimization.">
+		content="PhD student at MIT LIDS & IDSS, researching multi-agent decision-making, through the lens of learning, statistics, optimization, control, games, and networks.">
 	<meta property="og:url" content="https://zcysxy.github.io">
 	<meta property="og:image" content="https://zcysxy.github.io/assets/profile.jpg">
 	<meta name="twitter:card" content="summary">
@@ -59,7 +59,7 @@
 
 <body>
 	<div class="name">
-		<h1>Chenyu Zhang 张宸宇</h1>
+		<h1>Chenyu Zhang <span class="pinyin" title="Zhāng Chényǔ">张宸宇</span></h1>
 	</div>
 	<div class="intro">
 		<div class="text">
@@ -96,6 +96,7 @@
 			<li>[<a href="#notes">Notes</a>]</li>
 			<li>[<a href="#bio">Bio</a>]</li>
 		</ul>
+		<div class="scroll-progress" aria-hidden="true"></div>
 	</nav>
 	<hr>
 
@@ -157,7 +158,6 @@
 			with strong theoretical guarantees to address societal challenges.</p>
 
 		<div class="mermaid">
-			%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#00876255'}}}%%
 			flowchart LR
 			A[Social Efficiency] <--> B
 				B[Learning Efficiency] <--> C
@@ -170,7 +170,12 @@
 		</p>
 		<script type="module">
 			import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-			mermaid.initialize({ startOnLoad: true });
+			const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			mermaid.initialize({
+				startOnLoad: true,
+				theme: isDark ? 'dark' : 'base',
+				themeVariables: { primaryColor: '#00876255' }
+			});
 		</script>
 
 		<h3>Publications&ensp;<span class="sec-link">[<a href="https://scholar.google.com/citations?user=6MAGp1QAAAAJ">Google
@@ -550,6 +555,30 @@
 		</div>
 	</div>
 	<br>
+
+	<script>
+		(function () {
+			const bar = document.querySelector('.scroll-progress');
+			if (!bar) return;
+			let ticking = false;
+			function update() {
+				const h = document.documentElement;
+				const max = h.scrollHeight - h.clientHeight;
+				const pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
+				bar.style.width = (pct * 100) + '%';
+				ticking = false;
+			}
+			function onScroll() {
+				if (!ticking) {
+					requestAnimationFrame(update);
+					ticking = true;
+				}
+			}
+			window.addEventListener('scroll', onScroll, { passive: true });
+			window.addEventListener('resize', onScroll);
+			update();
+		})();
+	</script>
 </body>
 
 </html>
