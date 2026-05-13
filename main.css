@@ -1,3 +1,7 @@
+:root {
+  --nav-height: 2.48em;
+}
+
 body {
   margin: 60px auto;
   width: 70%;
@@ -39,7 +43,7 @@ html {
 }
 
 :target {
-  scroll-margin-top: 2.48em;
+  scroll-margin-top: var(--nav-height);
 }
 
 h1, h2, h3 {
@@ -116,21 +120,24 @@ ul.pub li {
 ul.pub li a.title {
   font-size: 1.2rem;
 }
-/* @media (max-width: 1000px) { */
-/*     ul.pub li { */
-/*         height: 200px; */
-/*     } */
-/* } */
-ul.pub li > img {
+ul.pub li > img,
+ul.pub li > a:first-child {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   min-width: 30%;
   max-width: 30%;
-  object-fit: cover;
   height: 100%;
+  overflow: hidden;
+  display: block;
 }
-ul.pub li > img:hover {
-  cursor: pointer;
+ul.pub li > img {
+  object-fit: cover;
+}
+ul.pub li > a:first-child > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 ul.pub li p {
   margin: 20px;
@@ -145,12 +152,14 @@ ul.pub li p {
     flex-direction: column;
     height: 400px;
   }
-  ul.pub li > img {
+  ul.pub li > img,
+  ul.pub li > a:first-child {
     border-top-left-radius: 15px;
     border-bottom-left-radius: 0;
     border-top-right-radius: 15px;
     width: 100%;
     max-width: unset;
+    min-width: unset;
     height: unset;
     max-height: 200px;
     min-height: 200px;
@@ -191,7 +200,6 @@ hr {
 }
 
 .sec-link {
-  /* font-weight: bold; */
   font-size: 18px;
 }
 
@@ -252,7 +260,7 @@ code a i {
 }
 
 code.date {
-  background-color: light#aaa;
+  background-color: #ddd;
   border-radius: 4px;
 	font-size: 0.8em;
   padding: 0.1em 0.25em;
@@ -284,7 +292,6 @@ code.date {
 .flow-row {
 	display: flex;
 	flex-wrap: wrap;
-	/* justify-content: space-around; */
 	gap: 1%;
 }
 
@@ -296,11 +303,16 @@ code.date {
 	padding: 1%;
 	max-width: 22%;
 }
-.flow-row-item img {
+.flow-row-item > img,
+.flow-row-item > a:first-child {
+	display: block;
 	width: 95%;
-  margin: 0 2.5%;
-	/* margin-left: auto; */
+	margin: 0 2.5%;
 	text-align: center;
+}
+.flow-row-item > a:first-child > img {
+	display: block;
+	width: 100%;
 }
 
 .flow-row-item .caption {
@@ -309,13 +321,15 @@ code.date {
 }
 .flow-row-item .caption span {
 	display: block;
-	/* margin: 0.5em auto; */
 	padding: 5px;
 	position: relative;
 }
 .flow-row-item .caption > :not(:last-child) {
 	border-bottom: 1px solid #ddd;
 	border-image: linear-gradient(to right, rgba(0,0,0,0), #ddd 40%, #ddd 60%, rgba(0,0,0,0) 100%) 1;
+}
+.flow-row-item .caption h3.title-tight {
+	letter-spacing: -0.05em;
 }
 
 @media (max-width: 1200px) {
@@ -341,4 +355,3 @@ code.date {
 .mermaid {
 	text-align: center;
 }
-
