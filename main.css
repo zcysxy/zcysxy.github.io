@@ -298,6 +298,7 @@ code.date {
 }
 
 .flow-row-item {
+	position: relative;
 	flex: 1 1 21%;
 	margin: 0 0 1%;
 	border-radius: 15px;
@@ -361,20 +362,54 @@ code.date {
 /* Pinyin tooltip on the Chinese name */
 .pinyin {
   cursor: help;
-  text-decoration: underline dotted rgba(0, 0, 0, 0.28);
-  text-underline-offset: 0.18em;
+  /* text-decoration: underline dotted rgba(0, 0, 0, 0.08); */
+  /* text-underline-offset: 0.18em; */
 }
 
-/* Hover lift on cards */
+/* Hover lift + cursor-tracking glow border + spotlight wash */
 ul.pub li,
 .flow-row-item {
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  --mx: 50%;
+  --my: 50%;
+  --glow: rgb(26, 141, 116);
+  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+/* Glow ring on the border itself (mask-composite carves out the interior).
+   Inset -1px + radius 16px (parent radius + 1) so the ring sits just outside the
+   parent's border-box, avoiding subpixel corner gaps where two rounded rects meet. */
+ul.pub li::before,
+.flow-row-item::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+  padding: 2px;
+  background: radial-gradient(
+    260px circle at var(--mx) var(--my),
+    var(--glow) 0%,
+    color-mix(in srgb, var(--glow) 45%, transparent) 25%,
+    transparent 65%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
 }
 ul.pub li:hover,
 .flow-row-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  border-color: rgb(26 141 116);
+  /* transform: translateY(-2px); */
+  box-shadow:
+    0 10px 10px rgba(0, 0, 0, 0.14),
+    0 0 12px color-mix(in srgb, var(--glow) 35%, transparent);
+  border-color: color-mix(in srgb, var(--glow) 50%, #aaa);
+}
+ul.pub li:hover::before,
+.flow-row-item:hover::before {
+  opacity: 1;
 }
 
 /* Scroll progress bar — sits on the nav's bottom border */
@@ -393,7 +428,7 @@ ul.pub li:hover,
   body {
     background-color: #1b1d1c;
     color: #ddd;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.80  0 0 0 0 0.70  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.045  0 0 0 0 0.080  0 0 0 0 0.070  0 0 0 0.018 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
   p, li {
     color: #cfcfcf;
@@ -408,11 +443,14 @@ ul.pub li:hover,
   .flow-row-item {
     border-color: #555;
     background-color: rgba(255, 255, 255, 0.02);
+    --glow: rgb(96, 210, 178);
   }
   ul.pub li:hover,
   .flow-row-item:hover {
-    border-color: rgb(96 210 178);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    border-color: color-mix(in srgb, var(--glow) 50%, #555);
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.5),
+      0 0 36px color-mix(in srgb, var(--glow) 35%, transparent);
   }
   .top-nav {
     background-color: rgba(27, 29, 28, 0.72);
