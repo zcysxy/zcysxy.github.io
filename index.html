@@ -65,8 +65,8 @@
 	<div class="intro">
 		<div class="text">
 			<div class="position">PhD student (2024-<i>present</i>)</div>
-			<div class="school"><a href="https://lids.mit.edu">Laboratory for Information & Decision Systems (LIDS)</a></div>
 			<div class="school"><a href="https://idss.mit.edu">Institute for Data, Systems, and Society (IDSS)</a></div>
+			<div class="school"><a href="https://lids.mit.edu">Laboratory for Information & Decision Systems (LIDS)</a></div>
 			<div class="uni">MIT</div>
 			<div class="address">77 Massachusetts Ave, Cambridge, MA 02139</div>
 			<div class="contact">
@@ -89,8 +89,8 @@
 		<div class="pic">
 			<button class="pic-flipper" type="button" aria-label="Flip profile photo" title="Click to flip">
 				<span class="pic-flipper-inner">
-					<img class="pic-face pic-front" src="assets/profile.jpg" alt="profile">
-					<img class="pic-face pic-back" src="assets/hans_zoomed.png" alt="hand-drawn portrait">
+					<img class="pic-face pic-back" src="assets/profile.jpg" alt="profile">
+					<img class="pic-face pic-front" src="assets/hans_zoomed.png" alt="hand-drawn portrait">
 				</span>
 			</button>
 		</div>
@@ -115,6 +115,9 @@
 				<li>
 					<code class="date">2026-11-11</code> Invited to speak at the <b>2026 INFORMS</b> Annual Meeting in session
 					Information Design, Trust, and Incentives.
+				</li>
+				<li>
+					<code class="date">2026-05-26</code> Joining <b>NVIDIA</b> as a research intern this summer in Santa Clara; let's grab a coffee if you're around!
 				</li>
 				<li>
 					<code class="date">2026-02-23</code> Invited to give a talk at the <a
@@ -526,8 +529,8 @@
 					<span>Engineering Systems</span>
 					<span>(2024-<i>present</i>)</span>
 					<span>Working with Professors
-						<br><a href="https://azizan.mit.edu">Navid Azizan</a> &
-						<br><a href="https://resil.mit.edu/people">Saurabh Amin</a></span>
+						<br><a href="https://resil.mit.edu/people">Saurabh Amin</a> &
+						<br><a href="https://azizan.mit.edu">Navid Azizan</a></span>
 				</div>
 			</div>
 			<div class="flow-row-item">
@@ -633,18 +636,34 @@
 			recompute();
 		})();
 
-		// Profile photo flip on click
+		// Profile photo flip on click, plus a toggle every 300px of downward scroll
 		(function () {
 			const flipper = document.querySelector('.pic-flipper');
 			if (!flipper) return;
 			flipper.addEventListener('click', () => {
 				flipper.classList.toggle('flipped');
 			});
+
+			const step = 500;
+			let lastY = window.scrollY;
+			let accumDown = 0;
+			function onScroll() {
+				const y = window.scrollY;
+				const dy = y - lastY;
+				lastY = y;
+				if (dy <= 0) return;
+				accumDown += dy;
+				while (accumDown >= step) {
+					flipper.classList.toggle('flipped');
+					accumDown -= step;
+				}
+			}
+			window.addEventListener('scroll', onScroll, {passive: true});
 		})();
 
 		// Cursor-tracking glow on cards
 		(function () {
-			const cards = document.querySelectorAll('ul.pub li, .flow-row-item');
+			const cards = document.querySelectorAll('ul.pub li, .flow-row-item, .intro');
 			cards.forEach(card => {
 				let raf = 0, x = 0, y = 0;
 				card.addEventListener('pointermove', (e) => {
