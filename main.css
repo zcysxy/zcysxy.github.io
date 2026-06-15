@@ -319,6 +319,20 @@ code.date {
   scrollbar-color: #ccc transparent;
 }
 
+.news-favicon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-left: 6px;
+  margin-top: -2px;
+  /* border-radius: 2px; */
+  flex-shrink: 0;
+}
+
+.news-favicon-source {
+  display: none;
+}
+
 .news-container::-webkit-scrollbar {
   width: 6px;
 }
